@@ -26,6 +26,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <script type="application/ld+json">
     {
@@ -92,6 +93,58 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .contact-bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex: 1;
+            justify-content: center;
+            margin: 0 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item:hover {
+            opacity: 0.8;
+            color: #f0f0f0;
+        }
+
+        .contact-item i {
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            color: white;
         }
 
         .logo {
@@ -172,10 +225,14 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
+        .mobile-only {
+            display: none;
+        }
+
         .hero {
             background: rgb(2, 117, 216);
             color: white;
-            min-height: 80vh;
+            min-height: 95vh;
             display: flex;
             align-items: center;
             text-align: center;
@@ -402,6 +459,47 @@
             color: #f0f0f0;
         }
 
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #ccc;
+            text-decoration: none;
+            display: inline;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-media a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-media a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 1rem;
@@ -429,6 +527,58 @@
             max-width: 600px;
             max-height: 80vh;
             overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgb(2, 117, 216);
+            box-shadow: 0 0 0 3px rgba(2, 117, 216, 0.1);
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .success-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-content h3 {
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        #submitBtn {
+            width: 100%;
+            margin-top: 1rem;
+            background: rgb(2, 117, 216) !important;
+            color: white !important;
         }
 
         .close {
@@ -536,7 +686,33 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .contact-bar {
+                gap: 1rem;
+                margin: 0 1rem;
+            }
+            
+            .contact-item {
+                font-size: 0.85rem;
+            }
+            
+            .contact-item span {
+                display: none;
+            }
+        }
+
         @media (max-width: 768px) {
+            .mobile-only {
+                display: block;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                margin-top: 1rem;
+                padding-top: 1rem;
+            }
+            
+            .mobile-only:first-of-type {
+                margin-top: 1rem;
+            }
+            
             .hamburger {
                 display: flex;
             }
@@ -558,6 +734,52 @@
             
             .nav-links.active {
                 right: 0;
+            }
+            
+            .mobile-contact-bar {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                margin-top: 1rem;
+            }
+            
+            .mobile-contact-item {
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                color: white;
+                text-decoration: none;
+                font-size: 1rem;
+                padding: 0.5rem;
+                min-height: 44px;
+                touch-action: manipulation;
+            }
+            
+            .mobile-contact-item:hover {
+                color: #f0f0f0;
+            }
+            
+            .mobile-social-links {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                padding: 0.5rem;
+            }
+            
+            .mobile-social-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                text-decoration: none;
+                font-size: 1.2rem;
+                touch-action: manipulation;
             }
             
             .nav-links li {
@@ -666,6 +888,11 @@
                 width: 100%;
                 margin: 0;
             }
+            
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -738,6 +965,29 @@
             <div class="logo">
                 <img src="white_logo.png" alt="Custi Logo">
             </div>
+            
+            <div class="contact-bar" id="contactBar">
+                <a href="tel:+27872656129" class="contact-item" aria-label="Call us">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
+                    <span>+27 87 265 6129</span>
+                </a>
+                <a href="mailto:info@custi.africa" class="contact-item" aria-label="Email us">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <span>info@custi.africa</span>
+                </a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/showcase/bsc-custi/posts/?feedView=all" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61584683937024" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/reel/DUDb6TjAixN/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -748,6 +998,8 @@
                 <li><a href="#features" onclick="closeMenu()">Features</a></li>
                 <li><a href="#how-it-works" onclick="closeMenu()">How It Works</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+                <li><a href="tel:+27872656129" onclick="closeMenu()" class="mobile-only"><i class="fas fa-phone"></i> +27 87 265 6129</a></li>
+                <li><a href="mailto:info@custi.africa" onclick="closeMenu()" class="mobile-only"><i class="fas fa-envelope"></i> info@custi.africa</a></li>
             </ul>
         </nav>
     </header>
@@ -758,8 +1010,7 @@
                 <h1>WhatsApp Business Automation Platform</h1>
                 <p>Automate customer support and engagement through WhatsApp Business with intelligent chatbots that provide service information, handle quotation requests, and seamlessly connect customers to human agents</p>
                 <div class="hero-buttons">
-                    <button class="cta-button secondary" onclick="openModal('quote')" aria-label="Request a quote">Request Quote</button>
-                    <button class="cta-button primary" onclick="openModal('contact')" aria-label="Start free trial with Custi">Get Started Today</button>
+                    <button class="cta-button primary" onclick="openModal('demo')" aria-label="Request a demo with Custi">Request Demo</button>
                 </div>
             </div>
         </section>
@@ -925,9 +1176,24 @@
                 </div>
                 <div class="footer-section">
                     <h3>Connect</h3>
-
-                    <a href="tel:+27872656129">+27 87 265 6129</a>
-                    <p>Available 24/7 for support</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Unit F21 Innovation Worx, 16 Scale End Road, Halfway House, Midrand, 1685</p>
+                        <p><i class="fas fa-map-marker-alt"></i> TC Steelworks Building, Lithabaneng Pela Likonyaneng, Main South 1, Maseru 100</p>
+                        <p><a href="mailto:info@custi.africa"><i class="fas fa-envelope"></i> info@custi.africa</a></p>
+                        <p><a href="tel:+27872656129"><i class="fas fa-phone"></i> +27 87 265 6129</a></p>
+                        <p>Available 24/7 for support</p>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.linkedin.com/showcase/bsc-custi/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61584683937024" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/reel/DUDb6TjAixN/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="footer-section">
@@ -953,59 +1219,84 @@
 
 
 
-    <div id="contactModal" class="modal">
+    <div id="demoModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('contact')">&times;</span>
-            <h2>Start Your Free Trial</h2>
-            <p>Ready to transform your customer communication? Get started with Custi today!</p>
-            
-            <div style="margin: 2rem 0;">
-                <h3>What's Included in Your Free Trial:</h3>
-                <ul>
-                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> 14-day free trial</li>
-                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Full access to all features</li>
-                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Personal onboarding session</li>
-                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> 24/7 support</li>
-                </ul>
+            <span class="close" onclick="closeModal('demo')">&times;</span>
+            <div id="modalHeader">
+                <h2>Request Demo</h2>
+                <p>Fill out the form below and our team will contact you to schedule a personalized demo.</p>
             </div>
             
-            <div style="text-align: center;">
-                <p><strong>Contact our team to get started:</strong></p>
-
-                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+27872656129">+27 87 265 6129</a></p>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/27872656129?text=Hi, Custi">Message us directly</a></p>
-                <button class="cta-button" onclick="window.open('https://wa.me/27872656129?text=Hi, Custi', '_blank')" style="margin-top: 1rem;">Talk to Custi</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="quoteModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('quote')">&times;</span>
-            <h2>Request a Custom Quote</h2>
-            <p>Get a personalized quote based on your organization's specific needs and requirements.</p>
+            <form id="demoForm" onsubmit="submitDemo(event)">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required aria-describedby="name-error">
+                    <span class="error-message" id="name-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required aria-describedby="email-error">
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cellphone">Cellphone *</label>
+                    <input type="tel" id="cellphone" name="cellphone" required aria-describedby="cellphone-error">
+                    <span class="error-message" id="cellphone-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="organisation">Organisation Name *</label>
+                    <input type="text" id="organisation" name="organisation" required aria-describedby="organisation-error">
+                    <span class="error-message" id="organisation-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea id="comment" name="comment" rows="4" placeholder="Tell us about your requirements..."></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button" id="submitBtn">Request Demo</button>
+            </form>
             
-            <div style="margin: 2rem 0;">
-                <h3>What We'll Include:</h3>
-                <ul>
-                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Custom pricing for your volume</li>
-                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Feature recommendations</li>
-                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Implementation timeline</li>
-                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Support package options</li>
-                </ul>
-            </div>
-            
-            <div style="text-align: center;">
-                <p><strong>Get your quote in 24 hours:</strong></p>
-
-                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+27872656129">+27 87 265 6129</a></p>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/27872656129?text=Hi, I'd like to request a quote for Custi">Request quote via WhatsApp</a></p>
-                <button class="cta-button" onclick="window.open('https://wa.me/27872656129?text=Hi, I\'d like to request a quote for Custi', '_blank')" style="margin-top: 1rem;">Request Quote Now</button>
+            <div id="successMessage" style="display: none;">
+                <div class="success-content">
+                    <i class="fas fa-check-circle" style="color: #28a745; font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3>Demo Request Submitted!</h3>
+                    <p>Thank you for your interest. Our team will contact you within 24 hours to schedule your personalized demo.</p>
+                    <button class="cta-button" onclick="closeModal('demo')">Close</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Configuration for contact details
+        const contactConfig = {
+            phone: '+27872656129',
+            email: 'info@custi.africa',
+            linkedin: 'https://www.linkedin.com/showcase/bsc-custi/posts/?feedView=all',
+            facebook: 'https://www.facebook.com/profile.php?id=61584683937024',
+            instagram: 'https://www.instagram.com/reel/DUDb6TjAixN/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=='
+        };
+
+        // Initialize contact bar visibility
+        function initializeContactBar() {
+            const contactBar = document.getElementById('contactBar');
+            const hasAnyContact = contactConfig.phone || contactConfig.email || 
+                                contactConfig.linkedin || contactConfig.facebook || contactConfig.instagram;
+            
+            if (!hasAnyContact) {
+                contactBar.style.display = 'none';
+            }
+        }
+
+        // Initialize EmailJS
+        (function() {
+            emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+        })();
+
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (element) {
@@ -1040,6 +1331,14 @@
             if (modal) {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
+                // Reset form if opening demo modal
+                if (modalType === 'demo') {
+                    document.getElementById('demoForm').reset();
+                    document.getElementById('modalHeader').style.display = 'block';
+                    document.getElementById('successMessage').style.display = 'none';
+                    document.getElementById('demoForm').style.display = 'block';
+                    clearErrors();
+                }
             }
         }
 
@@ -1051,12 +1350,112 @@
             }
         }
 
+        function clearErrors() {
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(el => el.textContent = '');
+            const inputs = document.querySelectorAll('.form-group input, .form-group textarea');
+            inputs.forEach(input => input.style.borderColor = '#e9ecef');
+        }
+
+        function showError(fieldId, message) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            const inputElement = document.getElementById(fieldId);
+            if (errorElement) errorElement.textContent = message;
+            if (inputElement) inputElement.style.borderColor = '#dc3545';
+        }
+
+        function validateForm() {
+            clearErrors();
+            let isValid = true;
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const cellphone = document.getElementById('cellphone').value.trim();
+            const organisation = document.getElementById('organisation').value.trim();
+
+            if (!name) {
+                showError('name', 'Name is required');
+                isValid = false;
+            }
+
+            if (!email) {
+                showError('email', 'Email is required');
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showError('email', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            if (!cellphone) {
+                showError('cellphone', 'Cellphone is required');
+                isValid = false;
+            } else {
+                const cleanPhone = cellphone.replace(/[\s\-\(\)]/g, '');
+                const phoneValid = /^(\+266[0-9]{8}|266[0-9]{8}|[0-9]{8}|\+27[0-9]{9}|0[0-9]{9})$/.test(cleanPhone);
+                if (!phoneValid) {
+                    showError('cellphone', 'Please enter a valid cellphone number');
+                    isValid = false;
+                }
+            }
+
+            if (!organisation) {
+                showError('organisation', 'Organisation name is required');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function submitDemo(event) {
+            event.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                cellphone: document.getElementById('cellphone').value.trim(),
+                organisation: document.getElementById('organisation').value.trim(),
+                comment: document.getElementById('comment').value.trim()
+            };
+
+            emailjs.send('service_custi', 'template_demo', {
+                to_email: 'info@custi.africa',
+                cc_email: 'kutloisiso@bsc.africa,lebohang@bsc.africa',
+                from_name: formData.name,
+                from_email: formData.email,
+                phone: formData.cellphone,
+                organisation: formData.organisation,
+                message: formData.comment || 'No additional comments',
+                subject: 'Demo Request from ' + formData.organisation
+            })
+            .then(() => {
+                document.getElementById('modalHeader').style.display = 'none';
+                document.getElementById('demoForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            })
+            .catch((error) => {
+                console.error('Email send failed:', error);
+                alert('Failed to send demo request. Please try again or contact us directly.');
+            })
+            .finally(() => {
+                submitBtn.textContent = 'Request Demo';
+                submitBtn.disabled = false;
+            });
+        }
+
         window.onclick = function(event) {
             const modals = document.querySelectorAll('.modal');
             modals.forEach(modal => {
                 if (event.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
+                    const modalId = modal.id.replace('Modal', '');
+                    closeModal(modalId);
                 }
             });
         }
@@ -1141,6 +1540,9 @@
         });
         
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize contact bar
+            initializeContactBar();
+            
             const animatedElements = document.querySelectorAll('.feature-card, .step, .pricing-card');
             animatedElements.forEach(el => {
                 el.style.opacity = '0';
