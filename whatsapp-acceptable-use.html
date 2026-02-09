@@ -141,6 +141,11 @@
         .mobile-only {
             display: none;
         }
+        
+        .mobile-only i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
 
         .policy-container {
             max-width: 800px;
@@ -231,7 +236,7 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr 2fr;
             gap: 2rem;
             margin-bottom: 2rem;
         }
@@ -262,12 +267,28 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .contact-info a {
             color: #ccc;
             text-decoration: none;
             display: inline;
+        }
+
+        .contact-details {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .contact-details {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
 
         .social-media {
@@ -343,7 +364,24 @@
 
         @media (max-width: 768px) {
             .contact-bar {
+                display: flex;
+                gap: 0.5rem;
+                margin: 0 0.5rem;
+                flex: 1;
+            }
+            
+            .contact-item {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.5rem;
+            }
+            
+            .contact-item span {
                 display: none;
+            }
+            
+            .social-links {
+                display: flex;
+                gap: 0.5rem;
             }
             
             .mobile-only {
@@ -355,6 +393,11 @@
             
             .mobile-only:first-of-type {
                 margin-top: 1rem;
+            }
+            
+            .mobile-only i {
+                margin-right: 0.5rem;
+                font-size: 1.1rem;
             }
             
             .hamburger {
@@ -371,9 +414,9 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                padding-top: 2rem;
+                padding-top: 20px;
                 transition: right 0.3s ease;
-                gap: 1rem;
+                gap: 20px;
             }
             
             .nav-links.active {
@@ -412,17 +455,17 @@
                 padding: 0.5rem;
             }
             
-            .mobile-social-link {
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem;
+                min-height: 44px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 44px;
-                height: 44px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.1);
-                color: white;
-                text-decoration: none;
-                font-size: 1.2rem;
                 touch-action: manipulation;
             }
             
@@ -463,13 +506,13 @@
                     <span>info@custi.africa</span>
                 </a>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/showcase/bsc-custi/posts/?feedView=all" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn">
+                    <a href="https://www.linkedin.com/showcase/bsc-custi" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn">
                         <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                     </a>
                     <a href="https://www.facebook.com/profile.php?id=61584683937024" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook">
                         <i class="fab fa-facebook-f" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.instagram.com/reel/DUDb6TjAixN/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram">
+                    <a href="https://www.instagram.com/custi.africa/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram">
                         <i class="fab fa-instagram" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -649,11 +692,6 @@
                     <p>Empowering businesses with intelligent WhatsApp chatbot solutions for better customer engagement and support.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="index.html#features">Features</a>
-                    <a href="index.html#how-it-works">How It Works</a>
-                </div>
-                <div class="footer-section">
                     <h3>Legal</h3>
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
@@ -663,19 +701,22 @@
                 <div class="footer-section">
                     <h3>Connect</h3>
                     <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Maseru, Lesotho</p>
-                        <p><a href="mailto:info@custi.africa"><i class="fas fa-envelope"></i> info@custi.africa</a></p>
-                        <p><a href="tel:+27872656129"><i class="fas fa-phone"></i> +27 87 265 6129</a></p>
-                        <p>Available 24/7 for support</p>
+                        <p><i class="fas fa-map-marker-alt"></i> F21 Innovation Worx, 16 Scale End Road, Halfway House, Midrand, 1685</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Lithabaneng Pela Likonyaneng, Main South 1, Maseru 100</p>
+                        <div class="contact-details">
+                            <p><a href="mailto:info@custi.africa"><i class="fas fa-envelope"></i> info@custi.africa</a></p>
+                            <p><a href="tel:+27872656129"><i class="fas fa-phone"></i> +27 87 265 6129</a></p>
+                            <p>Available 24/7 for support</p>
+                        </div>
                     </div>
                     <div class="social-media">
-                        <a href="https://www.linkedin.com/showcase/bsc-custi/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page">
+                        <a href="https://www.linkedin.com/showcase/bsc-custi" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="https://www.facebook.com/profile.php?id=61584683937024" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/reel/DUDb6TjAixN/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page">
+                        <a href="https://www.instagram.com/custi.africa/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
