@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Protection & Privacy Statement - Custi</title>
+    <meta name="description" content="Data Protection & Privacy Statement for Custi platform. Learn how we collect, process, and protect your personal data under POPIA and GDPR.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Roboto, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgb(2, 117, 216);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f0f0f0;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 12px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .policy-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 40px;
+        }
+
+        .policy-header {
+            background: rgb(2, 117, 216);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .policy-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: -30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: rgb(2, 117, 216);
+            margin: 2rem 0 1rem 0;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #495057;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        p, li {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 2rem;
+        }
+
+        .highlight {
+            background: #e3f2fd;
+            padding: 20px;
+            border-left: 4px solid rgb(2, 117, 216);
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .footer-links {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: rgb(2, 117, 216);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: rgb(2, 117, 216);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #f0f0f0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
+            touch-action: manipulation;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgb(2, 117, 216);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: right 0.3s ease;
+                gap: 1rem;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .policy-container {
+                padding: 100px 15px 20px;
+            }
+            
+            .policy-content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="white_logo.png" alt="Custi Logo">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+                <li><a href="index.html#features" onclick="closeMenu()">Features</a></li>
+                <li><a href="index.html#how-it-works" onclick="closeMenu()">How It Works</a></li>
+                <li><a href="index.html#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="policy-container">
+        <div class="policy-header">
+            <div class="container">
+                <h1>Data Protection & Privacy Statement</h1>
+                <p>How we collect, process, and protect your personal data</p>
+            </div>
+        </div>
+
+        <div class="policy-content">
+            <div class="last-updated">
+                Last updated: December 2026
+            </div>
+
+            <div class="highlight">
+                <strong>Important:</strong> This Data Protection & Privacy Statement complies with South Africa's Protection of Personal Information Act (POPIA) and the European Union's General Data Protection Regulation (GDPR).
+            </div>
+
+            <h2>1. Introduction</h2>
+            <p>This Data Protection & Privacy Statement explains how we collect, use, store, and protect your personal information when you use the Custi platform. We are committed to protecting your privacy and ensuring transparency in our data processing activities.</p>
+
+            <h2>2. Who We Are</h2>
+            <p><strong>Business Software Craftsmen (BSC)</strong> is the product owner and data controller for the Custi platform. Custi is a Software-as-a-Service (SaaS) WhatsApp chatbot automation platform operated by BSC.</p>
+            
+            <h3>Contact Details:</h3>
+            <ul>
+                <li><strong>Company:</strong> Business Software Craftsmen (Pty) Ltd</li>
+                <li><strong>Platform:</strong> Custi WhatsApp Automation Platform</li>
+                <li><strong>Location:</strong> South Africa</li>
+                <li><strong>Contact:</strong> +27 87 265 6129</li>
+                <li><strong>Email:</strong> privacy@custi.africa</li>
+            </ul>
+
+            <h2>3. Data We Process</h2>
+            <p>We process the following types of personal data:</p>
+            
+            <h3>Account Information:</h3>
+            <ul>
+                <li>Name and contact details</li>
+                <li>Business information</li>
+                <li>Email addresses and phone numbers</li>
+                <li>Payment and billing information</li>
+            </ul>
+
+            <h3>Platform Usage Data:</h3>
+            <ul>
+                <li>WhatsApp message content and metadata</li>
+                <li>Chatbot configuration and responses</li>
+                <li>Usage analytics and performance metrics</li>
+                <li>Technical logs and system information</li>
+            </ul>
+
+            <h3>Customer Data:</h3>
+            <ul>
+                <li>End-user contact information processed through your chatbots</li>
+                <li>Conversation history and message content</li>
+                <li>Customer interaction data and preferences</li>
+            </ul>
+
+            <h2>4. How and Why We Process Data</h2>
+            <p>We process personal data for the following purposes:</p>
+            <ul>
+                <li><strong>Service Delivery:</strong> To provide and maintain the Custi platform</li>
+                <li><strong>Customer Support:</strong> To respond to inquiries and provide technical assistance</li>
+                <li><strong>Platform Improvement:</strong> To analyze usage and improve our services</li>
+                <li><strong>Billing and Payments:</strong> To process subscriptions and manage accounts</li>
+                <li><strong>Compliance:</strong> To meet legal and regulatory requirements</li>
+                <li><strong>Security:</strong> To protect against fraud and ensure platform security</li>
+            </ul>
+
+            <h2>5. Legal Basis for Processing</h2>
+            <p>Under POPIA and GDPR, we process personal data based on:</p>
+            <ul>
+                <li><strong>Contractual Necessity:</strong> To fulfill our service agreement with you</li>
+                <li><strong>Legitimate Interest:</strong> For platform improvement and security</li>
+                <li><strong>Consent:</strong> Where you have provided explicit consent</li>
+                <li><strong>Legal Obligation:</strong> To comply with applicable laws and regulations</li>
+            </ul>
+
+            <h2>6. Data Sharing & Sub-processors</h2>
+            <p>We may share your data with:</p>
+            <ul>
+                <li><strong>Meta (WhatsApp):</strong> For WhatsApp Business API functionality</li>
+                <li><strong>Cloud Service Providers:</strong> For hosting and infrastructure</li>
+                <li><strong>Payment Processors:</strong> For billing and subscription management</li>
+                <li><strong>Analytics Providers:</strong> For platform performance monitoring</li>
+            </ul>
+            <p>All third-party processors are bound by strict data protection agreements and comply with POPIA and GDPR requirements.</p>
+
+            <h2>7. Data Retention</h2>
+            <p>We retain personal data for as long as necessary to:</p>
+            <ul>
+                <li>Provide our services to you</li>
+                <li>Comply with legal obligations</li>
+                <li>Resolve disputes and enforce agreements</li>
+            </ul>
+            <p>Typically, we retain data for the duration of your subscription plus 7 years for compliance purposes, unless a longer retention period is required by law.</p>
+
+            <h2>8. Data Security Measures</h2>
+            <p>We implement comprehensive security measures including:</p>
+            <ul>
+                <li><strong>Encryption:</strong> Data encrypted in transit and at rest</li>
+                <li><strong>Access Controls:</strong> Role-based access and authentication</li>
+                <li><strong>Regular Audits:</strong> Security assessments and vulnerability testing</li>
+                <li><strong>Staff Training:</strong> Regular privacy and security training</li>
+                <li><strong>Incident Response:</strong> Procedures for data breach management</li>
+            </ul>
+
+            <h2>9. Data Subject Rights</h2>
+            <p>Under POPIA and GDPR, you have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request copies of your personal data</li>
+                <li><strong>Rectification:</strong> Correct inaccurate or incomplete data</li>
+                <li><strong>Erasure:</strong> Request deletion of your personal data</li>
+                <li><strong>Restriction:</strong> Limit how we process your data</li>
+                <li><strong>Portability:</strong> Receive your data in a structured format</li>
+                <li><strong>Object:</strong> Object to processing based on legitimate interests</li>
+                <li><strong>Withdraw Consent:</strong> Withdraw consent where applicable</li>
+            </ul>
+
+            <h2>10. Cross-Border Data Transfers</h2>
+            <p>When we transfer personal data outside South Africa or the EU, we ensure adequate protection through:</p>
+            <ul>
+                <li>Adequacy decisions by relevant authorities</li>
+                <li>Standard contractual clauses</li>
+                <li>Binding corporate rules</li>
+                <li>Certification schemes and codes of conduct</li>
+            </ul>
+
+            <h2>11. Contact Information</h2>
+            <p>For any data protection or privacy queries, contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> privacy@custi.africa</li>
+                <li><strong>Phone:</strong> +27 87 265 6129</li>
+                <li><strong>WhatsApp:</strong> +27 87 265 6129</li>
+                <li><strong>Address:</strong> Business Software Craftsmen, South Africa</li>
+            </ul>
+
+            <p>You also have the right to lodge a complaint with the Information Regulator (South Africa) or your local data protection authority if you believe we have not handled your personal data appropriately.</p>
+
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="whatsapp-acceptable-use.html">WhatsApp Acceptable Use</a>
+                <a href="index.html">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Custi</h3>
+                    <p>Empowering businesses with intelligent WhatsApp chatbot solutions for better customer engagement and support.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="whatsapp-acceptable-use.html">WhatsApp Acceptable Use</a>
+                    <a href="data-protection.html">Data Protection</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <a href="tel:+27872656129">+27 87 265 6129</a>
+                    <p>Available 24/7 for support</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <a href="https://bsc.africa" target="_blank" style="display: flex; align-items: center; gap: 8px; color: #ccc; text-decoration: none; font-size: 0.9rem;">
+                    <span>Developed by</span>
+                    <img src="bsc_logo.png" alt="BSC Logo" style="height: 20px; width: auto; filter: brightness(0) invert(1);">
+                    <span>BSC - Business Software Craftsmen</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Custi. All rights reserved. | Revolutionizing business communication through intelligent automation.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="https://wa.me/27872656129?text=Hi, Custi" class="floating-whatsapp" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

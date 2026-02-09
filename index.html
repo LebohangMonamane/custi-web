@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custi - WhatsApp Chatbot for Your Business | AI-Powered Customer Support</title>
+    <meta name="description" content="Transform your business with Custi's intelligent WhatsApp chatbot. Automate customer support, boost sales, and engage customers 24/7 with our AI-powered solution.">
+    <meta name="keywords" content="WhatsApp chatbot, business automation, customer support, AI chatbot, WhatsApp Business API, automated messaging">
+    <meta name="author" content="Custi">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://custi.africa/">
+    <meta property="og:title" content="Custi - WhatsApp Chatbot for Your Business">
+    <meta property="og:description" content="Transform your business with Custi's intelligent WhatsApp chatbot. Automate customer support, boost sales, and engage customers 24/7.">
+    <meta property="og:image" content="https://custi.africa/og-image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://custi.africa/">
+    <meta property="twitter:title" content="Custi - WhatsApp Chatbot for Your Business">
+    <meta property="twitter:description" content="Transform your business with Custi's intelligent WhatsApp chatbot. Automate customer support, boost sales, and engage customers 24/7.">
+    <meta property="twitter:image" content="https://custi.africa/og-image.jpg">
+    
+    <link rel="canonical" href="https://custi.africa/">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Custi",
+      "description": "WhatsApp chatbot automation platform for businesses",
+      "url": "https://custi.africa",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free trial available"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Custi",
+        "url": "https://custi.africa",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+27-87-265-6129",
+          "contactType": "customer service",
+
+        }
+      }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Roboto, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            height: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgb(2, 117, 216);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f0f0f0;
+        }
+
+        .sign-in-btn {
+            background: transparent;
+            color: white;
+            padding: 8px 20px;
+            border: 2px solid white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .sign-in-btn:hover {
+            background: white;
+            color: rgb(2, 117, 216) !important;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 12px;
+            min-height: 44px;
+            min-width: 44px;
+            justify-content: center;
+            align-items: center;
+            touch-action: manipulation;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .hero {
+            background: rgb(2, 117, 216);
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            background: white;
+            color: rgb(2, 117, 216);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+            min-height: 44px;
+            min-width: 44px;
+            touch-action: manipulation;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: rgb(2, 117, 216);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(2, 117, 216, 0.3);
+            background: #f8f9fa;
+        }
+
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            touch-action: manipulation;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: rgb(2, 117, 216);
+        }
+
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .step-number {
+            background: rgb(2, 117, 216);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .faq {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            color: rgb(2, 117, 216);
+            transition: transform 0.3s;
+        }
+
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+
+
+
+        footer {
+            background: rgb(2, 117, 216);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #f0f0f0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        /* Mobile-specific improvements */
+        .mobile-scroll-indicator {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(2, 117, 216, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 1001;
+            animation: bounce 2s infinite;
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
+            touch-action: manipulation;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .steps {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgb(2, 117, 216);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: right 0.3s ease;
+                gap: 1rem;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                touch-action: manipulation;
+            }
+            
+            .sign-in-btn {
+                margin-left: 0;
+                margin-top: 1rem;
+                padding: 12px 24px;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+            
+            .hero {
+                min-height: 90vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1.1rem;
+                min-height: 48px;
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .cta-button.secondary {
+                background: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+            
+            .features, .how-it-works, .faq {
+                padding: 60px 0;
+            }
+            
+            .features h2, .how-it-works h2, .faq h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .mobile-scroll-indicator {
+                display: block;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .modal-content {
+                margin: 5% auto;
+                padding: 1.5rem;
+                width: 95%;
+                max-height: 90vh;
+                border-radius: 20px 20px 0 0;
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                margin: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .footer-bottom p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .features-grid {
+                gap: 1rem;
+            }
+            
+            .steps {
+                gap: 1rem;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .cta-button:hover {
+                transform: none;
+                box-shadow: 0 10px 25px rgba(2, 117, 216, 0.3);
+            }
+            
+            .feature-card:active {
+                transform: scale(0.98);
+            }
+            
+            .cta-button:active {
+                transform: scale(0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="white_logo.png" alt="Custi Logo">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+                <li><a href="#features" onclick="closeMenu()">Features</a></li>
+                <li><a href="#how-it-works" onclick="closeMenu()">How It Works</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>WhatsApp Business Automation Platform</h1>
+                <p>Automate customer support and engagement through WhatsApp Business with intelligent chatbots that provide service information, handle quotation requests, and seamlessly connect customers to human agents</p>
+                <div class="hero-buttons">
+                    <button class="cta-button secondary" onclick="openModal('quote')" aria-label="Request a quote">Request Quote</button>
+                    <button class="cta-button primary" onclick="openModal('contact')" aria-label="Start free trial with Custi">Get Started Today</button>
+                </div>
+            </div>
+        </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose Custi for Your WhatsApp Business Automation?</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-info-circle" aria-hidden="true"></i></div>
+                    <h3>Products & Service Information</h3>
+                    <p>Automatically provide detailed information about your products and services and business offerings to customers through WhatsApp</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+                    <h3>Leads Management</h3>
+                    <p>Capture, track, and nurture leads automatically through WhatsApp conversations with intelligent lead scoring and follow-up</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i></div>
+                    <h3>Quotation Requests</h3>
+                    <p>Enable customers to easily request personalized quotes through WhatsApp with automated collection and processing</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tools" aria-hidden="true"></i></div>
+                    <h3>Technical Support</h3>
+                    <p>Provide instant technical assistance and troubleshooting through automated responses and guided support workflows</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-headset" aria-hidden="true"></i></div>
+                    <h3>Human Agent Handoff</h3>
+                    <p>Seamlessly transfer customers to human agents when needed, ensuring personalized support for complex inquiries</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-database" aria-hidden="true"></i></div>
+                    <h3>Legacy Systems Integration</h3>
+                    <p>Seamlessly connect with your existing CRM, ERP, and database systems for unified customer data management</p>
+                </article>
+                <article class="feature-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto;">
+                    <div class="feature-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security with 99.9% uptime guarantee to keep your business running smoothly</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How Our WhatsApp Chatbot Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Sign Up</h3>
+                    <p>Create your Custi account and connect your Business number</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Customize</h3>
+                    <p>Set up your chatbot responses, workflows, and business information</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Launch</h3>
+                    <p>Activate your chatbot and start engaging with customers automatically</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Optimize</h3>
+                    <p>Monitor performance and continuously improve your chatbot's responses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(0)">
+                    <span>How long does it take to set up my WhatsApp chatbot?</span>
+                    <i class="fas fa-chevron-down faq-icon" id="icon-0"></i>
+                </div>
+                <div class="faq-answer" id="answer-0">
+                    <p>While the initial setup can be completed in hours, full implementation and customization typically takes a few days to ensure your chatbot is perfectly tailored to your business needs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(1)">
+                    <span>Do I need a WhatsApp Business account?</span>
+                    <i class="fas fa-chevron-down faq-icon" id="icon-1"></i>
+                </div>
+                <div class="faq-answer" id="answer-1">
+                    <p>Yes, you'll need a WhatsApp Business account and access to the WhatsApp Business API. We can help guide you through the setup process if you don't have one yet.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(2)">
+                    <span>Can I customize the chatbot responses?</span>
+                    <i class="fas fa-chevron-down faq-icon" id="icon-2"></i>
+                </div>
+                <div class="faq-answer" id="answer-2">
+                    <p>Absolutely! Our platform allows you to fully customize responses, create conversation flows, and train the AI to match your brand voice and business requirements.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(3)">
+                    <span>What kind of support do you provide?</span>
+                    <i class="fas fa-chevron-down faq-icon" id="icon-3"></i>
+                </div>
+                <div class="faq-answer" id="answer-3">
+                    <p>We offer 24/7 customer support, personal onboarding sessions, and ongoing assistance to help you optimize your chatbot performance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(4)">
+                    <span>Is my data secure with Custi?</span>
+                    <i class="fas fa-chevron-down faq-icon" id="icon-4"></i>
+                </div>
+                <div class="faq-answer" id="answer-4">
+                    <p>Yes, we implement enterprise-grade security measures including encryption, secure servers, and regular security audits to protect your business and customer data.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(5)">
+                    <span>Can I integrate with other business tools?</span>
+                    <i class="fas fa-chevron-down faq-icon" id="icon-5"></i>
+                </div>
+                <div class="faq-answer" id="answer-5">
+                    <p>Yes, Custi integrates with popular CRM systems, e-commerce platforms, and other business tools to streamline your workflow and customer management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Custi</h3>
+                    <p>Empowering businesses with intelligent WhatsApp chatbot solutions for better customer engagement and support.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+
+
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="whatsapp-acceptable-use.html">WhatsApp Acceptable Use</a>
+                    <a href="data-protection.html">Data Protection</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+
+                    <a href="tel:+27872656129">+27 87 265 6129</a>
+                    <p>Available 24/7 for support</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <a href="https://bsc.africa" target="_blank" style="display: flex; align-items: center; gap: 8px; color: #ccc; text-decoration: none; font-size: 0.9rem;">
+                    <span>Developed by</span>
+                    <img src="bsc_logo.png" alt="BSC Logo" style="height: 20px; width: auto; filter: brightness(0) invert(1);">
+                    <span>BSC - Business Software Craftsmen</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Custi. All rights reserved. | Revolutionizing business communication through intelligent automation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-scroll-indicator">
+        <i class="fas fa-chevron-up"></i> Swipe up to explore
+    </div>
+    
+    <a href="https://wa.me/27872656129?text=Hi, Custi" class="floating-whatsapp" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contact')">&times;</span>
+            <h2>Start Your Free Trial</h2>
+            <p>Ready to transform your customer communication? Get started with Custi today!</p>
+            
+            <div style="margin: 2rem 0;">
+                <h3>What's Included in Your Free Trial:</h3>
+                <ul>
+                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> 14-day free trial</li>
+                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Full access to all features</li>
+                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Personal onboarding session</li>
+                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> 24/7 support</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <p><strong>Contact our team to get started:</strong></p>
+
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+27872656129">+27 87 265 6129</a></p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/27872656129?text=Hi, Custi">Message us directly</a></p>
+                <button class="cta-button" onclick="window.open('https://wa.me/27872656129?text=Hi, Custi', '_blank')" style="margin-top: 1rem;">Talk to Custi</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('quote')">&times;</span>
+            <h2>Request a Custom Quote</h2>
+            <p>Get a personalized quote based on your organization's specific needs and requirements.</p>
+            
+            <div style="margin: 2rem 0;">
+                <h3>What We'll Include:</h3>
+                <ul>
+                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Custom pricing for your volume</li>
+                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Feature recommendations</li>
+                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Implementation timeline</li>
+                    <li style="list-style: none;"><i class="fas fa-check" style="color: #28a745; margin-right: 8px;"></i> Support package options</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <p><strong>Get your quote in 24 hours:</strong></p>
+
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+27872656129">+27 87 265 6129</a></p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/27872656129?text=Hi, I'd like to request a quote for Custi">Request quote via WhatsApp</a></p>
+                <button class="cta-button" onclick="window.open('https://wa.me/27872656129?text=Hi, I\'d like to request a quote for Custi', '_blank')" style="margin-top: 1rem;">Request Quote Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        function toggleFaq(index) {
+            const answer = document.getElementById(`answer-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            
+            answer.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        function openModal(modalType) {
+            const modal = document.getElementById(modalType + 'Modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalType) {
+            const modal = document.getElementById(modalType + 'Modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(2, 117, 216, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'rgb(2, 117, 216)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        let touchStartY = 0;
+        let touchEndY = 0;
+        
+        function handleSwipe() {
+            if (touchEndY < touchStartY - 50) {
+                const currentSection = getCurrentSection();
+                const nextSection = getNextSection(currentSection);
+                if (nextSection) {
+                    nextSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+        
+        function getCurrentSection() {
+            const sections = document.querySelectorAll('section');
+            const scrollPos = window.scrollY + window.innerHeight / 2;
+            
+            for (let section of sections) {
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top + window.scrollY;
+                const sectionBottom = sectionTop + rect.height;
+                
+                if (scrollPos >= sectionTop && scrollPos <= sectionBottom) {
+                    return section;
+                }
+            }
+            return sections[0];
+        }
+        
+        function getNextSection(currentSection) {
+            const sections = Array.from(document.querySelectorAll('section'));
+            const currentIndex = sections.indexOf(currentSection);
+            return sections[currentIndex + 1] || null;
+        }
+        
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.changedTouches[0].screenY;
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+        
+        let hasScrolled = false;
+        window.addEventListener('scroll', function() {
+            if (!hasScrolled) {
+                const indicator = document.querySelector('.mobile-scroll-indicator');
+                if (indicator) {
+                    indicator.style.display = 'none';
+                }
+                hasScrolled = true;
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.feature-card, .step, .pricing-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                observer.observe(el);
+            });
+            
+            if (window.innerWidth <= 768) {
+                const inputs = document.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', function() {
+                        input.style.fontSize = '16px';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
