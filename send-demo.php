@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $recipients = ['info@custi.africa', 'kutloisiso@bsc.africa', 'lebohang@bsc.africa'];
+    $recipients = ['info@custi.africa'];
     $subject = 'Demo Request from ' . $org;
     
     $message = "Name: $name\n";
@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $headers = "From: info@custi.africa\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
     $sent = true;
     foreach ($recipients as $recipient) {
