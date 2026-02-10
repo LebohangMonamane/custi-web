@@ -10,7 +10,6 @@
     <link rel="canonical" href="https://custi.africa/demo.html">
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <style>
         * {
@@ -645,10 +644,6 @@
     </footer>
 
     <script>
-        (function() {
-            emailjs.init('YOUR_PUBLIC_KEY');
-        })();
-
         function clearErrors() {
             const errorElements = document.querySelectorAll('.error-message');
             errorElements.forEach(el => el.textContent = '');
@@ -716,30 +711,23 @@
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
 
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                cellphone: document.getElementById('cellphone').value.trim(),
-                organisation: document.getElementById('organisation').value.trim(),
-                comment: document.getElementById('comment').value.trim()
-            };
+            const formData = new FormData(document.getElementById('demoForm'));
 
-            emailjs.send('service_custi', 'template_demo', {
-                to_email: 'info@custi.africa',
-                cc_email: 'kutloisiso@bsc.africa,lebohang@bsc.africa',
-                from_name: formData.name,
-                from_email: formData.email,
-                phone: formData.cellphone,
-                organisation: formData.organisation,
-                message: formData.comment || 'No additional comments',
-                subject: 'Demo Request from ' + formData.organisation
+            fetch('send-demo.php', {
+                method: 'POST',
+                body: formData
             })
-            .then(() => {
-                document.getElementById('demoForm').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('demoForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert('Failed to send demo request. Please try again or contact us directly.');
+                }
             })
-            .catch((error) => {
-                console.error('Email send failed:', error);
+            .catch(error => {
+                console.error('Error:', error);
                 alert('Failed to send demo request. Please try again or contact us directly.');
             })
             .finally(() => {
