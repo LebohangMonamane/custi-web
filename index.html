@@ -272,6 +272,8 @@
             min-height: 44px;
             min-width: 44px;
             touch-action: manipulation;
+            display: inline-block;
+            text-decoration: none;
         }
         
         .cta-button.secondary {
@@ -551,27 +553,7 @@
             margin: 0;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
 
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
 
         .form-group {
             margin-bottom: 1.5rem;
@@ -618,38 +600,7 @@
             margin-bottom: 1rem;
         }
 
-        #submitBtn {
-            width: 100%;
-            margin-top: 1rem;
-            background: rgb(2, 117, 216) !important;
-            color: white !important;
-        }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            min-height: 44px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            touch-action: manipulation;
-        }
-
-        .close:hover {
-            color: #000;
-        }
 
         /* Mobile-specific improvements */
         .mobile-scroll-indicator {
@@ -939,20 +890,6 @@
                 text-align: center;
             }
             
-            .modal-content {
-                margin: 5% auto;
-                padding: 1.5rem;
-                width: 95%;
-                max-height: 90vh;
-                border-radius: 20px 20px 0 0;
-                position: fixed;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100%;
-                margin: 0;
-            }
-            
             .form-group input,
             .form-group textarea {
                 font-size: 16px;
@@ -1074,7 +1011,7 @@
                 <h1>WhatsApp Business Automation Platform</h1>
                 <p>Automate customer support and engagement through WhatsApp Business with intelligent chatbots that provide service information, handle quotation requests, and seamlessly connect customers to human agents</p>
                 <div class="hero-buttons">
-                    <button class="cta-button primary" onclick="openModal('demo')" aria-label="Request a demo with Custi">Request Demo</button>
+                    <a href="demo.html" class="cta-button primary" aria-label="Request a demo with Custi">Request Demo</a>
                 </div>
             </div>
         </section>
@@ -1278,57 +1215,7 @@
 
 
 
-    <div id="demoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('demo')">&times;</span>
-            <div id="modalHeader">
-                <h2>Request Demo</h2>
-                <p>Fill out the form below and our team will contact you to schedule a personalized demo.</p>
-            </div>
-            
-            <form id="demoForm" onsubmit="submitDemo(event)">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required aria-describedby="name-error">
-                    <span class="error-message" id="name-error"></span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required aria-describedby="email-error">
-                    <span class="error-message" id="email-error"></span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cellphone">Cellphone *</label>
-                    <input type="tel" id="cellphone" name="cellphone" required aria-describedby="cellphone-error">
-                    <span class="error-message" id="cellphone-error"></span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="organisation">Organisation Name *</label>
-                    <input type="text" id="organisation" name="organisation" required aria-describedby="organisation-error">
-                    <span class="error-message" id="organisation-error"></span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="comment">Comment</label>
-                    <textarea id="comment" name="comment" rows="4" placeholder="Tell us about your requirements..."></textarea>
-                </div>
-                
-                <button type="submit" class="cta-button" id="submitBtn">Request Demo</button>
-            </form>
-            
-            <div id="successMessage" style="display: none;">
-                <div class="success-content">
-                    <i class="fas fa-check-circle" style="color: #28a745; font-size: 3rem; margin-bottom: 1rem;"></i>
-                    <h3>Demo Request Submitted!</h3>
-                    <p>Thank you for your interest. Our team will contact you within 24 hours to schedule your personalized demo.</p>
-                    <button class="cta-button" onclick="closeModal('demo')">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <script>
         // Configuration for contact details
@@ -1383,140 +1270,6 @@
             
             answer.classList.toggle('active');
             icon.classList.toggle('active');
-        }
-
-        function openModal(modalType) {
-            const modal = document.getElementById(modalType + 'Modal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                // Reset form if opening demo modal
-                if (modalType === 'demo') {
-                    document.getElementById('demoForm').reset();
-                    document.getElementById('modalHeader').style.display = 'block';
-                    document.getElementById('successMessage').style.display = 'none';
-                    document.getElementById('demoForm').style.display = 'block';
-                    clearErrors();
-                }
-            }
-        }
-
-        function closeModal(modalType) {
-            const modal = document.getElementById(modalType + 'Modal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function clearErrors() {
-            const errorElements = document.querySelectorAll('.error-message');
-            errorElements.forEach(el => el.textContent = '');
-            const inputs = document.querySelectorAll('.form-group input, .form-group textarea');
-            inputs.forEach(input => input.style.borderColor = '#e9ecef');
-        }
-
-        function showError(fieldId, message) {
-            const errorElement = document.getElementById(fieldId + '-error');
-            const inputElement = document.getElementById(fieldId);
-            if (errorElement) errorElement.textContent = message;
-            if (inputElement) inputElement.style.borderColor = '#dc3545';
-        }
-
-        function validateForm() {
-            clearErrors();
-            let isValid = true;
-
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const cellphone = document.getElementById('cellphone').value.trim();
-            const organisation = document.getElementById('organisation').value.trim();
-
-            if (!name) {
-                showError('name', 'Name is required');
-                isValid = false;
-            }
-
-            if (!email) {
-                showError('email', 'Email is required');
-                isValid = false;
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                showError('email', 'Please enter a valid email address');
-                isValid = false;
-            }
-
-            if (!cellphone) {
-                showError('cellphone', 'Cellphone is required');
-                isValid = false;
-            } else {
-                const cleanPhone = cellphone.replace(/[\s\-\(\)]/g, '');
-                const phoneValid = /^(\+266[0-9]{8}|266[0-9]{8}|[0-9]{8}|\+27[0-9]{9}|0[0-9]{9})$/.test(cleanPhone);
-                if (!phoneValid) {
-                    showError('cellphone', 'Please enter a valid cellphone number');
-                    isValid = false;
-                }
-            }
-
-            if (!organisation) {
-                showError('organisation', 'Organisation name is required');
-                isValid = false;
-            }
-
-            return isValid;
-        }
-
-        function submitDemo(event) {
-            event.preventDefault();
-            
-            if (!validateForm()) {
-                return;
-            }
-
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                cellphone: document.getElementById('cellphone').value.trim(),
-                organisation: document.getElementById('organisation').value.trim(),
-                comment: document.getElementById('comment').value.trim()
-            };
-
-            emailjs.send('service_custi', 'template_demo', {
-                to_email: 'info@custi.africa',
-                cc_email: 'kutloisiso@bsc.africa,lebohang@bsc.africa',
-                from_name: formData.name,
-                from_email: formData.email,
-                phone: formData.cellphone,
-                organisation: formData.organisation,
-                message: formData.comment || 'No additional comments',
-                subject: 'Demo Request from ' + formData.organisation
-            })
-            .then(() => {
-                document.getElementById('modalHeader').style.display = 'none';
-                document.getElementById('demoForm').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-            })
-            .catch((error) => {
-                console.error('Email send failed:', error);
-                alert('Failed to send demo request. Please try again or contact us directly.');
-            })
-            .finally(() => {
-                submitBtn.textContent = 'Request Demo';
-                submitBtn.disabled = false;
-            });
-        }
-
-        window.onclick = function(event) {
-            const modals = document.querySelectorAll('.modal');
-            modals.forEach(modal => {
-                if (event.target === modal) {
-                    const modalId = modal.id.replace('Modal', '');
-                    closeModal(modalId);
-                }
-            });
         }
 
         window.addEventListener('scroll', function() {
